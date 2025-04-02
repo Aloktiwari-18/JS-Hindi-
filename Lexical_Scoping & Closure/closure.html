@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure
+
+    </title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+</body>
+<script>
+    //++++++++++++++++++++++  LEXICAL SCOPING +++++++++++++++
+
+//     function init() {
+//   var name = "Mozilla"; // name is a local variable created by init
+//   function displayName() {
+//     // displayName() is the inner function, that forms a closure
+//     console.log(name); // use variable declared in the parent function
+//   }
+//    return displayName;// pura memory share hota hai (pura lexical scoping hi share ho jata hai)
+// }
+// const init=init()
+// init();
+
+// +++++++++++++++++++++++++++++++++ CLOSURE ++++++++++++++++++++++++++++
+
+
+
+// function outer(){
+//     let userName="hitesh"
+//     function inner(){
+//         let secret="my123"
+//         console.log("Inner",userName);
+        
+//     }
+//     function innerTwo(){
+//         // access le lega 
+//     console.log("Inner Two", username);
+//     // yh access nahi lega 
+//     console.log(secret);
+    
+    
+//     }
+//     inner()
+//     innerTwo()
+// }
+// outer()
+
+</script>
+<script>
+// document.querySelector("#orange").addEventListener("click",function(){
+//     document.body.style.backgroundColor="orange"
+// })
+// document.querySelector("#green").addEventListener("click",function(){
+//     document.body.style.backgroundColor="green"
+// })
+
+function clickHandler(color) {
+    return function () { // Return the function
+        document.body.style.backgroundColor = `${color}`; // Fixed closing backtick
+    };
+}
+
+// Example usage:
+document.getElementById("orange").addEventListener("click", clickHandler("orange"));
+
+
+</script>
+</html>
